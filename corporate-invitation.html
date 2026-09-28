@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accept corporate invitation | Kridiya Business Travel</title>
+<meta name="description" content="Accept your invitation to join a Kridiya company travel account. Sign in or create an account using the invited email address.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="canonical" href="https://corporate.kridiyatravel.com/corporate-invitation.html">
+<link rel="stylesheet" href="css/corporate.css?v=20260928authcontrast">
+<link rel="stylesheet" href="css/motion.css?v=20260921a">
+<link rel="stylesheet" href="css/corporate-system.css?v=20260921a">
+<link rel="stylesheet" href="css/corporate-portal.css?v=20260920a">
+</head>
+<body data-page="corporate-invitation">
+<header id="site-header" class="site-header"></header>
+<main>
+  <div class="container auth-wrap">
+    <div class="auth-shell">
+      <section class="auth-card">
+        <p class="eyebrow">COMPANY INVITATION</p>
+        <h1>Accept your company invitation</h1>
+        <p class="auth-sub">Use the email address this invitation was sent to. If you create an account, check your email to verify it before accepting.</p>
+        <div id="invitation-status" class="form-banner error" hidden role="alert" aria-live="polite" tabindex="-1"></div>
+        <div id="invitation-signed-in" class="form-grid" hidden></div>
+
+        <div id="invitation-mode" class="auth-form-row" aria-label="Choose account action">
+          <button id="show-invitation-login" class="btn btn-outline" type="button" aria-pressed="true">Existing account</button>
+          <button id="show-invitation-register" class="btn btn-outline" type="button" aria-pressed="false">Create account</button>
+        </div>
+
+        <form id="invitation-auth-form" class="form-grid">
+          <div class="field">
+            <label for="invite-email">Email on your invitation</label>
+            <input id="invite-email" name="email" type="email" autocomplete="username" maxlength="254" autocapitalize="none" spellcheck="false" required placeholder="named.user@company.com">
+          </div>
+          <div class="field">
+            <label for="invite-password">Password</label>
+            <input id="invite-password" name="password" type="password" autocomplete="current-password" required placeholder="Your password">
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Sign in and accept">Sign in and accept</button>
+          <a href="forgot-password.html">Forgot password?</a>
+        </form>
+
+        <form id="invitation-register-form" class="form-grid" hidden>
+          <div class="field">
+            <label for="invite-name">Full name</label>
+            <input id="invite-name" name="name" autocomplete="name" minlength="2" maxlength="160" required placeholder="Your full name">
+          </div>
+          <div class="field">
+            <label for="invite-register-email">Email on your invitation</label>
+            <input id="invite-register-email" name="email" type="email" autocomplete="username" maxlength="254" autocapitalize="none" spellcheck="false" required placeholder="named.user@company.com">
+          </div>
+          <div class="field">
+            <label for="invite-register-password">Create password</label>
+            <input id="invite-register-password" name="password" type="password" autocomplete="new-password" minlength="8" aria-describedby="invite-password-help" required placeholder="At least 8 characters">
+            <small id="invite-password-help">Use at least 8 characters, including a letter and a number.</small>
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Create account and verify email">Create account and verify email</button>
+        </form>
+        <p class="auth-alt">Keep this invitation private. If the link has expired or names a different email, <a href="contact.html">ask for a new invitation</a>.</p>
+      </section>
+      <aside class="auth-assist">
+        <h2>Before you accept</h2>
+        <ul class="auth-checklist">
+          <li><b>Use the invited email</b><span>If you are signed in with a different email, switch accounts before accepting this invitation.</span></li>
+          <li><b>Check the company</b><span>Accept only if you recognise the company that invited you. Contact the corporate desk if the invitation is unexpected.</span></li>
+          <li><b>Need help with access?</b><span>Your approved access determines which bookings, documents and payment records you can view. Ask the desk if you need help.</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer id="site-footer" class="footer"></footer>
+<script src="js/motion.js?v=20260921a" defer></script>
+<script src="js/corporate.js?v=20260920a" defer></script>
+<script src="js/auth.js?v=20260920a" defer></script>
+<script src="js/corporate-invitation.js?v=20260920a" defer></script>
+</body>
+</html>

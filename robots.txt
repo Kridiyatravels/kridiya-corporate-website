@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://corporate.kridiyatravel.com/sitemap.xml
