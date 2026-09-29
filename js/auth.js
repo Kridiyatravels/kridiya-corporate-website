@@ -812,6 +812,18 @@ window.KridiyaAuth = (function () {
     return text;
   }
 
+  function authLinkError() {
+    const search = new URLSearchParams(location.search);
+    const hash = new URLSearchParams(location.hash.replace(/^#/, ""));
+    const code = hash.get("error_code") || search.get("error_code") || hash.get("error") || search.get("error") || "";
+    const description = hash.get("error_description") || search.get("error_description") || "";
+    if (!code && !description) return "";
+    if (/otp_expired|expired/i.test(code + " " + description)) {
+      return "This sign-in, invitation or password-reset link has expired. Request a new link and use the newest email.";
+    }
+    return "This sign-in, invitation or password-reset link is invalid. Request a new link or contact the corporate desk.";
+  }
+
   function busy(form, on, label) {
     const btn = form.querySelector('button[type="submit"]');
     if (!btn) return;
@@ -862,6 +874,8 @@ window.KridiyaAuth = (function () {
 
       const form = document.getElementById("login-form");
       initPwToggles(form);
+      const linkError = authLinkError();
+      if (linkError) banner(form, linkError, "error");
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
         if (!validateForm(form)) return;
@@ -2624,6 +2638,8 @@ window.KridiyaAuth = (function () {
     document.addEventListener("DOMContentLoaded", async function () {
       const form = document.getElementById("reset-password-form");
       initPwToggles(form);
+      const linkError = authLinkError();
+      if (linkError) banner(form, linkError, "error");
       try { await KridiyaAuth.client(); } catch (e) {}
       form.addEventListener("submit", async function (e) {
         e.preventDefault();
