@@ -44,6 +44,7 @@
   window.KridiyaMotion = Object.freeze({show, hide});
 
   function revealHero() {
+    if (document.body.hasAttribute("data-corporate-kind")) return;
     // Progressive enhancement: without JS, the entire headline remains visible.
     // Do not replay this marketing entrance on reload, back/forward or keyboard use.
     if (immediate() || performance.getEntriesByType("navigation")[0]?.type !== "navigate") return;

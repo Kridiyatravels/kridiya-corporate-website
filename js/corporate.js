@@ -170,9 +170,9 @@ function renderChrome() {
       <a class="biz-skip" href="#main-content">Skip to content</a>
       <div class="biz-utility"><div class="container"><span>Kridiya Business Travel <span class="biz-utility-divider">/</span> UAE & international</span><a href="tel:${KRIDIYA.phoneTel}">Corporate desk · ${KRIDIYA.phoneDisplay}</a></div></div>
       <div class="container biz-header-row">
-        <a class="biz-brand" href="index.html" aria-label="Kridiya Business Travel home"><img src="assets/logo.png" alt="Kridiya Travel and Tourism" width="1660" height="947"><span>Business<span>Travel</span></span></a>
-        <button class="biz-menu-toggle" type="button" aria-controls="biz-navigation" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
-        <nav id="biz-navigation" class="biz-nav" aria-label="Main navigation">
+        <a class="biz-brand" href="index.html" aria-label="Kridiya Business Travel home"><img src="assets/logo.png" alt="Kridiya Travel and Tourism" width="1672" height="941"><span>Business<span>Travel</span></span></a>
+        <button class="biz-menu-toggle" type="button" aria-controls="biz-navigation" aria-expanded="false">Menu <span class="biz-hamburger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+        <nav id="biz-navigation" class="biz-nav" aria-label="Main navigation" data-lenis-prevent>
           <ul>${groups.map(([label, overview, links], index) => `<li class="biz-nav-group"><button type="button" class="biz-nav-trigger" aria-expanded="false" aria-controls="biz-menu-${index}"${current === overview || (label === "Services" && current.startsWith("service-")) || (label === "Solutions" && current.startsWith("solution-")) ? ' data-current="true"' : ""}>${label}</button><div class="biz-dropdown t-dropdown" data-origin="top-center" id="biz-menu-${index}" hidden inert><div class="biz-menu-intro"><span class="biz-eyebrow">${label}</span><p>${label === "Services" ? "Flights, hotels, visas and transfers." : label === "Solutions" ? "Travel for employees, guests and project teams." : label === "Platform" ? "Requests, quotes, bookings and travel documents." : label === "Resources" ? "Account, payment and travel preparation guides." : "About Kridiya and how to reach us."}</p><a href="${overview}">Explore ${label.toLowerCase()} <span aria-hidden="true">↗</span></a></div><div class="biz-menu-links">${links.map(([text, href]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ""}>${text}<span aria-hidden="true">↗</span></a>`).join("")}</div></div></li>`).join("")}</ul>
           <div class="biz-mobile-actions"><a href="login.html?next=corporate-account.html">Client sign in</a><a class="btn btn-primary" href="company.html#setup">Apply for an account</a></div>
         </nav>
@@ -183,7 +183,7 @@ function renderChrome() {
     const nav = header.querySelector(".biz-nav");
     const mobileToggle = header.querySelector(".biz-menu-toggle");
     const triggers = Array.from(header.querySelectorAll(".biz-nav-trigger"));
-    const desktopNavigation = window.matchMedia("(min-width: 1081px)");
+    const desktopNavigation = window.matchMedia("(min-width: 1200px)");
     function setDropdown(trigger, open, options = {}) {
       const menu = document.getElementById(trigger.getAttribute("aria-controls"));
       trigger.setAttribute("aria-expanded", String(open));
@@ -203,12 +203,9 @@ function renderChrome() {
     }
     function closeMobile(options = {}) {
       mobileToggle.setAttribute("aria-expanded", "false");
-      nav.classList.remove("is-open");
       document.body.classList.remove("biz-menu-open");
-      // The full mobile navigation is a frequent navigation control, not an
-      // overlay presentation: keep it instant and animate only its dropdowns.
-      nav.hidden = !desktopNavigation.matches;
-      nav.inert = !desktopNavigation.matches;
+      if (window.KridiyaMotion) window.KridiyaMotion[desktopNavigation.matches ? "show" : "hide"](nav, { ...options, instant: options.instant || desktopNavigation.matches });
+      else { nav.hidden = !desktopNavigation.matches; nav.inert = !desktopNavigation.matches; nav.classList.remove("is-open"); }
       closeDropdowns(null, { ...options, instant: options.instant || !desktopNavigation.matches });
     }
     triggers.forEach((trigger) => {
@@ -231,9 +228,8 @@ function renderChrome() {
       const open = mobileToggle.getAttribute("aria-expanded") !== "true";
       if (!open) closeMobile();
       else {
-        nav.hidden = false;
-        nav.inert = false;
-        nav.classList.add("is-open");
+        if (window.KridiyaMotion) window.KridiyaMotion.show(nav);
+        else { nav.hidden = false; nav.inert = false; nav.classList.add("is-open"); }
         mobileToggle.setAttribute("aria-expanded", "true");
         document.body.classList.add("biz-menu-open");
       }
@@ -262,7 +258,7 @@ function renderChrome() {
   if (footer) {
     footer.classList.add("biz-footer");
     footer.innerHTML = `
-      <div class="container biz-footer-top"><div><a class="biz-brand" href="index.html" aria-label="Kridiya Business Travel home"><img src="assets/logo.png" alt="Kridiya Travel and Tourism" width="1660" height="947"><span>Business<span>Travel</span></span></a><p>Company travel. Personally handled.</p><a href="mailto:${KRIDIYA.emails.corporate}">${KRIDIYA.emails.corporate}</a><br><a href="tel:${KRIDIYA.phoneTel}">${KRIDIYA.phoneDisplay}</a><div class="biz-footer-social" aria-label="Kridiya social channels"><a href="${waLink()}" target="_blank" rel="noopener" aria-label="WhatsApp">${socialIcon("whatsapp")}</a><a href="${KRIDIYA.social.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${socialIcon("facebook")}</a><a href="${KRIDIYA.social.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${socialIcon("instagram")}</a><a href="${KRIDIYA.social.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${socialIcon("linkedin")}</a></div></div>
+      <div class="container biz-footer-top"><div><a class="biz-brand" href="index.html" aria-label="Kridiya Business Travel home"><img src="assets/logo.png" alt="Kridiya Travel and Tourism" width="1672" height="941"><span>Business<span>Travel</span></span></a><p>Company travel. Personally handled.</p><a href="mailto:${KRIDIYA.emails.corporate}">${KRIDIYA.emails.corporate}</a><br><a href="tel:${KRIDIYA.phoneTel}">${KRIDIYA.phoneDisplay}</a><div class="biz-footer-social" aria-label="Kridiya social channels"><a href="${waLink()}" target="_blank" rel="noopener" aria-label="WhatsApp">${socialIcon("whatsapp")}</a><a href="${KRIDIYA.social.facebook}" target="_blank" rel="noopener" aria-label="Facebook">${socialIcon("facebook")}</a><a href="${KRIDIYA.social.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${socialIcon("instagram")}</a><a href="${KRIDIYA.social.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn">${socialIcon("linkedin")}</a></div></div>
       <div><h2>Travel with us</h2><a href="solutions.html">Solutions</a><a href="services.html">All services</a><a href="booking.html">Request travel</a><a href="company.html#setup">Apply for an account</a></div>
       <div><h2>Your workspace</h2><a href="platform.html">Platform</a><a href="login.html?next=corporate-account.html">Client sign in</a><a href="how-it-works.html">How it works</a><a href="resources.html#billing">Billing & LPO</a></div>
       <div><h2>Here to help</h2><a href="help.html">Help centre</a><a href="contact.html">Corporate desk</a><a href="about.html">About Kridiya</a><a href="${KRIDIYA.mainSite}">Main website ↗</a></div></div>

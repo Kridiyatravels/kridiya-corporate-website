@@ -1,0 +1,99 @@
+/* Dense operational extension of the approved corporate identity. */
+body[data-private-portal="true"] {
+  --portal-ink: #201b2c; --portal-ink-2: #524959; --portal-line: #dfd9e5;
+  --portal-gold-soft: #fbecdf; --brand-accent: #b64719;
+  background: #f7f6f9; color: #201b2c;
+}
+body[data-private-portal="true"] :focus-visible { outline-color: #8c3819; }
+body[data-private-portal="true"] .portal-app-topbar { background: #fff; border-color: #dfd9e5; }
+body[data-private-portal="true"] .portal-app-brand img { width: 76px; height: 48px; object-fit: contain; }
+body[data-private-portal="true"] .portal-app-brand b { font-size: 13px; color: #201b2c; }
+body[data-private-portal="true"] .portal-app-brand small { font-size: 12px; color: #625d67; }
+body[data-private-portal="true"] .portal-sidebar { background: #fff; border-color: #dfd9e5; }
+body[data-private-portal="true"] .portal-company-mini label { color: #625d67; font-size: 11px; letter-spacing: .05em; }
+body[data-private-portal="true"] #corp-company-switch { border-color: #9b929f; background: #fff; color: #201b2c; border-radius: 8px; min-height: 44px; font-size: 12px; }
+body[data-private-portal="true"] #corp-sidebar-role { color: #625d67; font-size: 12px; }
+body[data-private-portal="true"] .portal-sidebar nav a { font-size: 13px; min-height: 43px; border-radius: 8px; color: #524959; padding: 11px 14px; }
+body[data-private-portal="true"] .portal-sidebar nav a.active { background: #faeee6; color: #8c3819; box-shadow: inset 3px 0 #b64719; }
+body[data-private-portal="true"] .portal-sidebar nav a:hover { background: #f3f0f6; color: #201b2c; }
+body[data-private-portal="true"] .portal-workspace-head h1 { font-weight: 600; color: #201b2c; font-size: clamp(27px,3vw,36px); }
+body[data-private-portal="true"] .portal-workspace-head p { color: #625d67; font-size: 13px; }
+body[data-private-portal="true"] .portal-eyebrow { color: #625d67; font-size: 10px; }
+body[data-private-portal="true"] .portal-panel,
+body[data-private-portal="true"] .portal-request-layout form,
+body[data-private-portal="true"] .portal-quote-card,
+body[data-private-portal="true"] .corporate-booking-card,
+body[data-private-portal="true"] .document-vault-card,
+body[data-private-portal="true"] .finance-ledger-card { border-color: #dfd9e5; border-radius: 12px; }
+body[data-private-portal="true"] .portal-metrics { border-radius: 12px; border-color: #dfd9e5; }
+body[data-private-portal="true"] .portal-metrics span { color: #201b2c; font-size: 28px; font-weight: 600; }
+body[data-private-portal="true"] .portal-metrics b { font-size: 12px; color: #524959; }
+body[data-private-portal="true"] .portal-metrics small { font-size: 11px; color: #625d67; }
+body[data-private-portal="true"] .portal-command-center span { color: #625d67; font-size: 11px; }
+body[data-private-portal="true"] .portal-command-center :is(b,h2,h3) { color: #201b2c; }
+body[data-private-portal="true"] .portal-command-center p,
+body[data-private-portal="true"] .portal-panel p,
+body[data-private-portal="true"] .portal-section-intro p { color: #625d67; font-size: 13px; }
+body[data-private-portal="true"] .portal-empty,
+body[data-private-portal="true"] .portal-loading { border: 1px solid #dfd9e5; background: #f5f3f8; color: #625d67; border-radius: 8px; font-size: 13px; }
+body[data-private-portal="true"] .btn { min-height: 44px; border-radius: 8px; font-size: 12px; font-weight: 600; padding: 11px 17px; }
+body[data-private-portal="true"] .btn-primary { color: #fff; background: #b64719; border-color: #b64719; }
+body[data-private-portal="true"] .btn-primary:hover { background: #923713; border-color: #923713; }
+body[data-private-portal="true"] .btn-outline { color: #201b2c; background: #fff; border-color: #9b929f; }
+body[data-private-portal="true"] .btn-outline:hover { background: #f5f3f8; }
+body[data-private-portal="true"] .btn:disabled { cursor: not-allowed; opacity: .5; }
+body[data-private-portal="true"] .field label { font-size: 12px; color: #524959; letter-spacing: 0; }
+body[data-private-portal="true"] .field :is(input,select,textarea),
+body[data-private-portal="true"] .portal-search input { min-height: 45px; border: 1px solid #918996; border-radius: 7px; color: #201b2c; font-size: 14px; background: #fff; }
+body[data-private-portal="true"] .field input:disabled { background: #f1eef4; color: #625d67; }
+body[data-private-portal="true"] .field small,
+body[data-private-portal="true"] .form-note,
+body[data-private-portal="true"] .portal-scope-note { color: #625d67; font-size: 12px; }
+body[data-private-portal="true"] .portal-facts dt { color: #625d67; font-size: 12px; }
+body[data-private-portal="true"] .portal-facts dd { color: #201b2c; font-size: 14px; }
+body[data-private-portal="true"] .portal-contact-record h4 { font-size: 14px; }
+body[data-private-portal="true"] .portal-search { font-size: 12px; color: #524959; }
+body[data-private-portal="true"] .portal-check input { accent-color: #b64719; }
+body[data-private-portal="true"] .portal-dialog { padding: 30px; border-color: #b6acbe; border-radius: 14px; color: #201b2c; }
+body[data-private-portal="true"] .portal-dialog::backdrop { background: #20172d99; }
+body[data-private-portal="true"] .portal-dialog p { font-size: 14px; color: #625d67; }
+body[data-private-portal="true"] .portal-dialog textarea { border: 1px solid #918996; border-radius: 7px; }
+body[data-private-portal="true"] .form-banner { border-radius: 8px; font-size: 13px; }
+body[data-private-portal="true"] .form-banner.error { background: #fff0ef; border: 1px solid #d4938e; color: #8c2720; }
+body[data-private-portal="true"] .form-banner.success { background: #edf7f0; border: 1px solid #87ac94; color: #24583a; }
+body[data-private-portal="true"] :is(.portal-panel-head,.portal-dialog-actions,.portal-form-actions,.portal-quote-actions,.document-vault-actions) { flex-wrap: wrap; }
+body[data-private-portal="true"] :is(.portal-panel,.corporate-booking-card,.portal-quote-card,.finance-ledger-card,.document-vault-card) { min-width: 0; overflow-wrap: anywhere; }
+body[data-private-portal="true"] .booking-detail-disclosure summary { min-height: 40px; padding: 10px 0; color: #8c3819; font-size: 13px; }
+@media (max-width: 1000px) {
+  body[data-private-portal="true"] .portal-app-main { padding-inline: 22px; }
+  body[data-private-portal="true"] .portal-panel { padding: 20px; }
+}
+@media (max-width: 760px) {
+  body[data-private-portal="true"] .portal-app-brand img { width: 62px; height: 40px; }
+  body[data-private-portal="true"] .portal-app-brand b { font-size: 11px; }
+  body[data-private-portal="true"] .portal-app-brand small { font-size: 10px; }
+  body[data-private-portal="true"] .portal-app-brand { gap: 8px; }
+  body[data-private-portal="true"] .portal-app-main { padding-inline: 16px; }
+  body[data-private-portal="true"] .portal-sidebar nav a { font-size: 12px; }
+  body[data-private-portal="true"] .portal-company-mini { grid-template-columns: minmax(0,1fr); }
+  body[data-private-portal="true"] .portal-panel { padding: 18px; }
+  body[data-private-portal="true"] .field :is(input,select,textarea),
+  body[data-private-portal="true"] .portal-search input,
+  body[data-private-portal="true"] .portal-dialog textarea { font-size: 16px; }
+  body[data-private-portal="true"] .portal-dialog { padding: 24px; }
+}
+@media print {
+  body[data-private-portal="true"] { background: #fff; }
+  body[data-private-portal="true"] .portal-panel { border: 0; }
+}
+
+/* Let intrinsic select/date input widths shrink inside the request grid. */
+body[data-private-portal="true"] .portal-request-layout,
+body[data-private-portal="true"] .portal-request-layout > *,
+body[data-private-portal="true"] .corporate-portal-request > *,
+body[data-private-portal="true"] .field { min-width: 0; }
+body[data-private-portal="true"] .corporate-portal-request { grid-template-columns: minmax(0,1fr); }
+body[data-private-portal="true"] .corporate-portal-request > * { grid-column: 1 / -1; }
+body[data-private-portal="true"] { --portal-gold: #8c3819; --portal-gold-soft: #faeee6; }
+body[data-private-portal="true"] .field :is(input,select,textarea) { width: 100%; max-width: 100%; box-sizing: border-box; }
+body[data-private-portal="true"] :is(button,input,select,textarea) { font-family: var(--font); }
