@@ -208,7 +208,7 @@
       busy(emailForm, true);
       try {
         verifiedEmail = await requestEmailCode(email.value, false);
-        guidance.textContent = "Enter the six-digit code sent to " + verifiedEmail + ".";
+        guidance.textContent = "Enter the eight-digit code sent to " + verifiedEmail + ".";
         display(emailForm, false);
         display(codeForm, true);
         code.focus();

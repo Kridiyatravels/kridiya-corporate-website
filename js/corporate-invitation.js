@@ -132,7 +132,7 @@
     show("");
     try {
       verifiedEmail = await KridiyaIdentity.requestEmailCode(emailForm.elements.namedItem("email").value, true);
-      document.getElementById("invitation-code-guidance").textContent = "Enter the six-digit code sent to " + verifiedEmail + ".";
+      document.getElementById("invitation-code-guidance").textContent = "Enter the eight-digit code sent to " + verifiedEmail + ".";
       visible(emailForm, false);
       visible(providers, false);
       visible(codeForm, true);
