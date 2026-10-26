@@ -190,7 +190,8 @@ window.KridiyaWorkspace = (function () {
     ];
     byId("corp-access-permissions").replaceChildren();
     permissions.forEach(function (item) { fact(byId("corp-access-permissions"), item[0], item[1] === true ? "Enabled" : "Not enabled"); });
-    byId("corp-security-reset").addEventListener("click", async function (event) {
+    const securityReset = byId("corp-security-reset");
+    if (securityReset) securityReset.addEventListener("click", async function (event) {
       const button = event.currentTarget;
       button.disabled = true;
       byId("corp-security-status").textContent = "Requesting reset link…";

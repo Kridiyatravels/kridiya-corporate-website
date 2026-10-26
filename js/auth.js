@@ -866,56 +866,8 @@ window.KridiyaAuth = (function () {
     return dest && /^[a-z-]+\.html$/.test(dest) ? dest : "corporate-account.html";
   }
 
-  if (page === "login") {
-    document.addEventListener("DOMContentLoaded", async function () {
-      if (await existingUserOrNull()) {
-        location.replace(loginRedirectTarget());
-        return;
-      }
-
-      const form = document.getElementById("login-form");
-      initPwToggles(form);
-      const linkError = authLinkError();
-      if (linkError) banner(form, linkError, "error");
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        if (!validateForm(form)) return;
-        banner(form, "");
-        busy(form, true, "Signing in...");
-        try {
-          const user = await KridiyaAuth.login(form.email.value, form.password.value);
-          toast("Welcome back, " + user.name.split(" ")[0] + "!");
-          location.href = loginRedirectTarget();
-        } catch (err) {
-          banner(form, errorMessage(err, "Could not sign in. Please check your email and password."), "error");
-          busy(form, false);
-        }
-      });
-
-      const resetBtn = document.getElementById("reset-password-btn");
-      if (resetBtn) {
-        resetBtn.addEventListener("click", async function () {
-          const email = form.email.value.trim();
-          if (!email) {
-            setFieldError(form.email, "Enter your email first, then click reset.");
-            form.email.focus();
-            return;
-          }
-          banner(form, "");
-          resetBtn.disabled = true;
-          resetBtn.textContent = "Sending reset link...";
-          try {
-            await KridiyaAuth.resetPassword(email);
-            banner(form, "Password reset email sent. Check your inbox.", "success");
-          } catch (err) {
-            banner(form, errorMessage(err, "Could not send the password reset email. Please try again."), "error");
-          }
-          resetBtn.disabled = false;
-          resetBtn.textContent = "Send password reset email";
-        });
-      }
-    });
-  }
+  // Corporate sign-in is handled by corporate-identity.js. Password sessions
+  // are deliberately excluded from the company portal.
 
   if (page === "register") {
     document.addEventListener("DOMContentLoaded", async function () {
@@ -1393,6 +1345,11 @@ window.KridiyaAuth = (function () {
         return;
       }
       if (!user) {
+        location.replace("login.html?next=corporate-account.html");
+        return;
+      }
+      if (!window.KridiyaIdentity || !(await window.KridiyaIdentity.sessionUsesCorporateMethod())) {
+        await KridiyaAuth.logout().catch(function () {});
         location.replace("login.html?next=corporate-account.html");
         return;
       }

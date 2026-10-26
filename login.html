@@ -27,35 +27,40 @@
     <div class="auth-shell">
       <section class="auth-card">
         <h1>Corporate portal sign in</h1>
-        <p class="auth-sub">Sign in with the email address you use for your company travel account.</p>
-        <form id="login-form" class="form-grid" method="post" novalidate>
+        <p class="auth-sub">Use the work email approved for your company account. Corporate access uses a one-time code or your company identity provider, never your consumer password.</p>
+        <form id="corporate-email-form" class="form-grid" method="post" novalidate>
           <div class="form-banner error" hidden role="alert"></div>
           <div class="field">
-            <label for="lg-email">Work email</label>
-            <input id="lg-email" name="email" type="email" autocomplete="username" maxlength="254" autocapitalize="none" spellcheck="false" required placeholder="you@company.com">
+            <label for="corporate-email">Work email</label>
+            <input id="corporate-email" name="email" type="email" autocomplete="email" maxlength="254" autocapitalize="none" spellcheck="false" required placeholder="you@company.com">
           </div>
-          <div class="field">
-            <label for="lg-pass">Password</label>
-            <div class="pw-wrap">
-              <input id="lg-pass" name="password" type="password" autocomplete="current-password" required placeholder="Your password">
-              <button type="button" class="pw-toggle" aria-label="Show password" aria-controls="lg-pass" aria-pressed="false">Show</button>
-            </div>
-          </div>
-          <div class="auth-form-row">
-            <span>Sign out when using a shared device.</span>
-            <a href="forgot-password.html">Forgot password?</a>
-          </div>
-          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Log in">Log in</button>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Send one-time code">Send one-time code</button>
         </form>
+        <form id="corporate-code-form" class="form-grid" method="post" novalidate hidden>
+          <div class="form-banner error" hidden role="alert"></div>
+          <p id="corporate-code-guidance" class="auth-alt"></p>
+          <div class="field">
+            <label for="corporate-code">One-time code</label>
+            <input id="corporate-code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required placeholder="123456">
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Verify code">Verify code</button>
+          <button id="corporate-change-email" class="btn btn-outline btn-block" type="button">Use a different email</button>
+        </form>
+        <div id="corporate-provider-options" class="form-grid" aria-label="Company identity sign-in options">
+          <p class="auth-alt">Or use your company identity</p>
+          <button id="corporate-google-sign-in" class="btn btn-outline btn-block" type="button" disabled aria-describedby="corporate-google-status">Continue with Google</button>
+          <button id="corporate-microsoft-sign-in" class="btn btn-outline btn-block" type="button" disabled hidden aria-describedby="corporate-google-status">Continue with Microsoft</button>
+          <p id="corporate-google-status" class="auth-alt" role="status">Checking company sign-in options…</p>
+        </div>
         <p class="auth-alt">Need company access? <a href="company.html#setup"><b>Apply for a corporate account</b></a> or <a href="contact.html"><b>contact Kridiya</b></a>.</p>
       </section>
 
       <aside class="auth-assist">
         <h2>Your company travel</h2>
         <ul class="auth-checklist">
-          <li><b>Use your own account</b><span>Sign in with the email invited to your company account. Do not share your password.</span></li>
+          <li><b>Use your own identity</b><span>Sign in with the exact work email invited to your company account. Shared accounts are not accepted.</span></li>
           <li><b>Follow your trips</b><span>Review requests, booking updates and documents available to your role.</span></li>
-          <li><b>Joining for the first time?</b><span>Open your company invitation to sign in or create an account and verify your email.</span></li>
+          <li><b>Joining for the first time?</b><span>Open your company invitation and verify the invited email before entering the workspace.</span></li>
         </ul>
         <a class="btn btn-outline btn-block" href="https://wa.me/971509413873?text=Hello%20Kridiya%20Business%20Travel%2C%20I%20need%20corporate%20portal%20login%20support." target="_blank" rel="noopener">Need help? WhatsApp us</a>
       </aside>
@@ -66,5 +71,6 @@
 <script src="js/motion.js?v=20260921a" defer></script>
 <script src="js/corporate.js?v=20260802d" defer></script>
 <script src="js/auth.js?v=20260802d" defer></script>
+<script src="js/corporate-identity.js" defer></script>
 </body>
 </html>
