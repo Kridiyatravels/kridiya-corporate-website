@@ -170,7 +170,7 @@
       });
     });
     if (invalidInvitation) showStatus(status, "A valid company invitation is required.", true);
-    else if (availableCount) showStatus(status, "Your company access is checked after your identity is verified.", false);
+    else if (availableCount) showStatus(status, "", false);
     else showStatus(status, "Company identity providers are not configured yet. Use a one-time email code.", false);
   }
 
