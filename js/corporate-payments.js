@@ -36,11 +36,12 @@
   }
   async function edge(method, body) {
     const configuration = KridiyaAuth.publicConfiguration();
-    const headers = { apikey: configuration.publishableKey };
+    const headers = {};
     if (method === "POST") {
       const client = await KridiyaAuth.client();
       const session = await client.auth.getSession();
       if (session.error || !session.data || !session.data.session || !session.data.session.access_token) throw new Error("Please sign in again before paying.");
+      headers.apikey = configuration.publishableKey;
       headers.Authorization = "Bearer " + session.data.session.access_token;
       headers["Content-Type"] = "application/json";
     }
