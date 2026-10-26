@@ -684,6 +684,7 @@ window.KridiyaAuth = (function () {
   }
 
   return {
+    publicConfiguration: function () { return { url: SUPABASE_URL, publishableKey: SUPABASE_KEY, siteUrl: PUBLIC_SITE_URL }; },
     client: client,
     session: session,
     currentUser: currentUser,
