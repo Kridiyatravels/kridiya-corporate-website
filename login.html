@@ -1,76 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<meta name="referrer" content="no-referrer">
-<title>Corporate Portal Sign In | Kridiya Business Travel</title>
-<meta name="description" content="Sign in to your Kridiya Business Travel account to review company travel requests, booking updates and available documents.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="assets/favicon-180.png">
-<link rel="canonical" href="https://corporate.kridiyatravel.com/login.html">
-<link rel="stylesheet" href="css/corporate.css?v=20260802d">
-<link rel="stylesheet" href="css/motion.css?v=20260921a">
-<link rel="stylesheet" href="css/corporate-system.css?v=20260921a">
-<link rel="stylesheet" href="css/corporate-portal.css?v=20260802d">
-<link rel="stylesheet" href="css/corporate-brand.css">
-<link rel="stylesheet" href="css/corporate-motion.css">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Corporate travel coming soon | Kridiya Business Travel</title>
+  <meta name="description" content="A new Kridiya corporate travel experience is coming soon. Contact the corporate desk for account enquiries and urgent travel support.">
+  <link rel="canonical" href="https://corporate.kridiyatravel.com/">
+  <link rel="icon" href="assets/favicon-32.png">
+  <link rel="stylesheet" href="css/corporate-fonts.css">
+  <link rel="stylesheet" href="css/corporate-maintenance.css">
 </head>
-<body data-corporate-kind="auth" data-page="login">
-<header id="site-header" class="site-header"></header>
-<main>
-  <div class="container auth-wrap">
-    <div class="auth-shell">
-      <section class="auth-card">
-        <h1>Corporate portal sign in</h1>
-        <p class="auth-sub">Use the work email approved for your company account. Corporate access uses a one-time code or your company identity provider, never your consumer password.</p>
-        <form id="corporate-email-form" class="form-grid" method="post" novalidate>
-          <div class="form-banner error" hidden role="alert"></div>
-          <div class="field">
-            <label for="corporate-email">Work email</label>
-            <input id="corporate-email" name="email" type="email" autocomplete="email" maxlength="254" autocapitalize="none" spellcheck="false" required placeholder="you@company.com">
-          </div>
-          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Send one-time code">Send one-time code</button>
-        </form>
-        <form id="corporate-code-form" class="form-grid" method="post" novalidate hidden>
-          <div class="form-banner error" hidden role="alert"></div>
-          <p id="corporate-code-guidance" class="auth-alt"></p>
-          <div class="field">
-            <label for="corporate-code">One-time code</label>
-            <input id="corporate-code" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{8}" minlength="8" maxlength="8" required placeholder="12345678">
-          </div>
-          <button class="btn btn-primary btn-block btn-lg" type="submit" data-label="Verify code">Verify code</button>
-          <button id="corporate-change-email" class="btn btn-outline btn-block" type="button">Use a different email</button>
-        </form>
-        <div id="corporate-provider-options" class="form-grid" aria-label="Company identity sign-in options">
-          <p class="auth-alt">Or use your company identity</p>
-          <button id="corporate-google-sign-in" class="btn btn-outline btn-block" type="button" disabled aria-describedby="corporate-google-status">Continue with Google</button>
-          <button id="corporate-microsoft-sign-in" class="btn btn-outline btn-block" type="button" disabled hidden aria-describedby="corporate-google-status">Continue with Microsoft</button>
-          <p id="corporate-google-status" class="auth-alt" role="status">Checking company sign-in options…</p>
-        </div>
-        <p class="auth-alt">Need company access? <a href="company.html#setup"><b>Apply for a corporate account</b></a> or <a href="contact.html"><b>contact Kridiya</b></a>.</p>
-      </section>
+<body>
+  <a class="skip-link" href="#coming-soon-content">Skip to contact information</a>
 
-      <aside class="auth-assist">
-        <h2>Your company travel</h2>
-        <ul class="auth-checklist">
-          <li><b>Use your own identity</b><span>Sign in with the exact work email invited to your company account. Shared accounts are not accepted.</span></li>
-          <li><b>Follow your trips</b><span>Review requests, booking updates and documents available to your role.</span></li>
-          <li><b>Joining for the first time?</b><span>Open your company invitation and verify the invited email before entering the workspace.</span></li>
-        </ul>
-        <a class="btn btn-outline btn-block" href="https://wa.me/971509413873?text=Hello%20Kridiya%20Business%20Travel%2C%20I%20need%20corporate%20portal%20login%20support." target="_blank" rel="noopener">Need help? WhatsApp us</a>
-      </aside>
+  <header class="maintenance-header" aria-label="Kridiya Business Travel">
+    <div class="maintenance-header__inner">
+      <a class="maintenance-brand" href="./" aria-label="Kridiya Business Travel home">
+        <img src="assets/logo.png" alt="Kridiya Travel and Tourism" width="1672" height="941">
+        <span aria-hidden="true">Business<span>Travel</span></span>
+      </a>
+      <p>Corporate travel desk</p>
     </div>
-  </div>
-</main>
-<footer id="site-footer" class="footer"></footer>
-<script src="js/motion.js?v=20260921a" defer></script>
-<script src="js/corporate.js?v=20260802d" defer></script>
-<script src="js/auth.js?v=20260802d" defer></script>
-<script src="js/corporate-identity.js?v=20261027a" defer></script>
+  </header>
+
+  <main id="coming-soon-content" class="maintenance-main">
+    <section class="maintenance-layout" aria-labelledby="maintenance-title">
+      <div class="maintenance-copy">
+        <p class="maintenance-eyebrow">Kridiya Business Travel</p>
+        <h1 id="maintenance-title">Corporate travel. <span>Coming soon.</span></h1>
+        <p class="maintenance-lede">We’re preparing a simpler way for companies to arrange and manage travel.</p>
+        <p class="maintenance-note">For account enquiries or urgent travel, our corporate desk is available below.</p>
+      </div>
+
+      <div class="maintenance-visual">
+        <img src="assets/hero.jpg" alt="View from an aircraft window above the clouds" width="1600" height="1067">
+
+        <aside class="maintenance-contact" aria-labelledby="contact-title">
+          <div class="maintenance-contact__copy">
+            <p>Corporate desk</p>
+            <h2 id="contact-title">Speak with our team.</h2>
+          </div>
+          <address class="maintenance-contact__actions">
+            <a class="maintenance-call" href="tel:+971509413873">Call +971 50 941 3873</a>
+            <a href="mailto:corporate@kridiyatravel.com">corporate@kridiyatravel.com</a>
+            <a href="https://wa.me/971509413873" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          </address>
+          <p class="maintenance-contact__note">A message alone does not confirm a travel change.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="maintenance-footer">
+    <p>Kridiya Travel and Tourism FZ-LLC</p>
+    <p>Business travel, personally handled.</p>
+  </footer>
 </body>
 </html>
