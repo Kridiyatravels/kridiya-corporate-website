@@ -20,25 +20,15 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
-  display: grid;
-  grid-template-rows: 1fr auto;
   color: var(--maintenance-ink);
   background: #fff;
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-}
-
-a:focus-visible {
-  outline: 3px solid var(--maintenance-link);
-  outline-offset: 4px;
-}
-
 .maintenance-main {
-  min-height: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   place-items: center;
   padding: 48px 24px;
@@ -62,17 +52,18 @@ a:focus-visible {
 }
 
 .maintenance-footer {
+  position: fixed;
+  inset-inline-start: 50%;
+  inset-block-end: 17px;
   width: min(calc(100% - 100px), 1320px);
-  min-height: 56px;
-  margin-inline: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px 28px;
-  padding-block: 16px;
+  gap: 12px 24px;
   color: var(--maintenance-secondary);
-  font-size: .67rem;
-  line-height: 1.5;
+  font-size: .6rem;
+  line-height: 1.45;
+  transform: translateX(-50%);
 }
 
 .maintenance-footer p,
@@ -84,14 +75,19 @@ a:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 6px 18px;
+  gap: 4px 14px;
   font-style: normal;
 }
 
 .maintenance-footer a {
   color: var(--maintenance-link);
   font-weight: 600;
-  text-underline-offset: 4px;
+  text-underline-offset: 3px;
+}
+
+.maintenance-footer a:focus-visible {
+  outline: 2px solid var(--maintenance-link);
+  outline-offset: 3px;
 }
 
 @media (max-width: 760px) {
@@ -104,24 +100,18 @@ a:focus-visible {
   }
 
   .maintenance-footer {
+    inset-block-end: 11px;
     width: calc(100% - 32px);
-    min-height: 92px;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 5px;
-    padding-block: 14px;
+    gap: 3px;
+    font-size: .57rem;
     text-align: center;
   }
 
   .maintenance-footer address {
     justify-content: center;
-    gap: 4px 12px;
+    gap: 3px 10px;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    scroll-behavior: auto !important;
-  }
 }
