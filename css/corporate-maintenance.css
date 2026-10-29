@@ -1,11 +1,8 @@
 :root {
   color-scheme: light;
-  --maintenance-accent: #8c3819;
-  --maintenance-accent-hover: #6f2b13;
   --maintenance-ink: #201b2c;
   --maintenance-secondary: #625d67;
-  --maintenance-eyebrow: #746057;
-  --maintenance-border: #ded9e2;
+  --maintenance-link: #8c3819;
 }
 
 *,
@@ -24,264 +21,107 @@ body {
   min-height: 100dvh;
   margin: 0;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   color: var(--maintenance-ink);
   background: #fff;
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-}
-
-img {
-  display: block;
-  max-width: 100%;
 }
 
 a {
   color: inherit;
 }
 
-.skip-link {
-  position: fixed;
-  z-index: 10;
-  inset-block-start: 12px;
-  inset-inline-start: 12px;
-  padding: 10px 14px;
-  border-radius: 6px;
-  color: #fff;
-  background: var(--maintenance-ink);
-  font-size: .82rem;
-  font-weight: 700;
-  transform: translateY(-160%);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-:where(a, button):focus-visible {
-  outline: 3px solid var(--maintenance-accent);
+a:focus-visible {
+  outline: 3px solid var(--maintenance-link);
   outline-offset: 4px;
 }
 
-.maintenance-header,
-.maintenance-main,
-.maintenance-footer {
-  width: min(calc(100% - 100px), 1320px);
-  margin-inline: auto;
-}
-
-.maintenance-header {
-  min-height: 77px;
-  display: flex;
-  align-items: center;
-}
-
-.maintenance-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--maintenance-ink);
-  text-decoration: none;
-}
-
-.maintenance-brand img {
-  width: 76px;
-  height: 52px;
-  object-fit: contain;
-}
-
-.maintenance-brand > span {
-  min-height: 31px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-inline-start: 11px;
-  border-inline-start: 1px solid var(--maintenance-border);
-  font-size: .7rem;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.maintenance-brand > span > span,
-.maintenance-content h1 span {
-  display: block;
-}
-
 .maintenance-main {
+  min-height: 0;
   display: grid;
-  align-items: center;
-  padding-block: 54px 86px;
+  place-items: center;
+  padding: 48px 24px;
 }
 
 .maintenance-content {
-  width: min(100%, 720px);
-}
-
-.maintenance-eyebrow {
-  margin: 0 0 20px;
-  color: var(--maintenance-eyebrow);
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  text-align: center;
 }
 
 .maintenance-content h1 {
-  max-width: 11ch;
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.8rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 400;
   letter-spacing: -.045em;
   line-height: 1.06;
 }
 
-.maintenance-lede {
-  margin: 27px 0 0;
-  color: var(--maintenance-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-.maintenance-note {
-  margin: 11px 0 0;
-  color: var(--maintenance-secondary);
-  font-size: .8rem;
-  line-height: 1.65;
-}
-
-.maintenance-contacts {
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 24px;
-  font-style: normal;
-}
-
-.maintenance-contacts a {
-  color: var(--maintenance-accent);
-  font-size: .82rem;
-  font-weight: 600;
-  overflow-wrap: anywhere;
-  text-underline-offset: 5px;
-  transition: color 160ms ease-out;
-}
-
-.maintenance-contacts a:hover {
-  color: var(--maintenance-accent-hover);
-}
-
-.maintenance-caution {
-  margin: 24px 0 0;
-  padding-top: 16px;
-  border-top: 1px solid var(--maintenance-border);
-  color: var(--maintenance-secondary);
-  font-size: .68rem;
-  line-height: 1.55;
+.maintenance-content h1 span {
+  display: block;
 }
 
 .maintenance-footer {
-  min-height: 64px;
+  width: min(calc(100% - 100px), 1320px);
+  min-height: 56px;
+  margin-inline: auto;
   display: flex;
   align-items: center;
-  border-top: 1px solid var(--maintenance-border);
+  justify-content: space-between;
+  gap: 16px 28px;
+  padding-block: 16px;
   color: var(--maintenance-secondary);
-  font-size: .68rem;
+  font-size: .67rem;
+  line-height: 1.5;
 }
 
-.maintenance-footer p {
+.maintenance-footer p,
+.maintenance-footer address {
   margin: 0;
 }
 
-@media (max-width: 1024px) {
-  .maintenance-header,
-  .maintenance-main,
-  .maintenance-footer {
-    width: calc(100% - 100px);
-  }
+.maintenance-footer address {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 18px;
+  font-style: normal;
+}
+
+.maintenance-footer a {
+  color: var(--maintenance-link);
+  font-weight: 600;
+  text-underline-offset: 4px;
 }
 
 @media (max-width: 760px) {
-  .maintenance-header,
-  .maintenance-main,
-  .maintenance-footer {
-    width: calc(100% - 40px);
-  }
-
-  .maintenance-header {
-    min-height: 70px;
-  }
-
-  .maintenance-brand {
-    gap: 8px;
-  }
-
-  .maintenance-brand img {
-    width: 67px;
-    height: 44px;
-  }
-
-  .maintenance-brand > span {
-    min-height: 28px;
-    padding-inline-start: 8px;
-    font-size: .62rem;
-  }
-
   .maintenance-main {
-    align-items: start;
-    padding-block: 48px 64px;
-  }
-
-  .maintenance-eyebrow {
-    margin-bottom: 14px;
-    font-size: .65rem;
+    padding: 32px 20px;
   }
 
   .maintenance-content h1 {
-    font-size: clamp(2.12rem, 9vw, 2.45rem);
-    line-height: 1.05;
+    font-size: clamp(2.08rem, 9vw, 2.4rem);
   }
 
-  .maintenance-lede {
-    margin-top: 20px;
-    font-size: .91rem;
-  }
-
-  .maintenance-note {
-    font-size: .75rem;
-  }
-
-  .maintenance-contacts {
-    margin-top: 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 9px;
-  }
-
-  .maintenance-contacts a {
-    min-height: 28px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .maintenance-footer {
-    min-height: 60px;
-  }
-}
-
-@media (max-width: 390px) {
-  .maintenance-header,
-  .maintenance-main,
   .maintenance-footer {
     width: calc(100% - 32px);
+    min-height: 92px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding-block: 14px;
+    text-align: center;
+  }
+
+  .maintenance-footer address {
+    justify-content: center;
+    gap: 4px 12px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .maintenance-contacts a,
-  .skip-link {
-    transition-duration: .01ms;
+  * {
+    scroll-behavior: auto !important;
   }
 }
